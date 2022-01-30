@@ -9,7 +9,7 @@ import youtube_dl
 from async_timeout import timeout
 from discord.ext import commands
  
-token = "OTI5Mjk3NzMxNTEwNDc2ODMw.YdlR9A.q6MW8WXGbNZ85NjHLOQWuKJnfoc"
+token = "token"
 prefix = "!"
  
 bot = commands.Bot(command_prefix=prefix)
