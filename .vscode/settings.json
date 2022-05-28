@@ -3,5 +3,7 @@
         "recived",
         "socksock",
         "webserver"
-    ]
+    ],
+    "python.linting.mypyEnabled": true,
+    "python.linting.enabled": true
 }

@@ -8,7 +8,6 @@ server_socket.listen()
 while True:
     client_socket, addr = server_socket.accept()
     print('connection from', addr)
-            
     while True:
         requests = client_socket.recv(1024)
 
