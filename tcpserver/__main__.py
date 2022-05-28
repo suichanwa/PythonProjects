@@ -1,7 +1,5 @@
 from multiprocessing import connection
-import re
 import socket
-import sys
 from warnings import catch_warnings
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -13,17 +11,13 @@ sock.listen(1)
 
 while True:
     print('connection from')
-    connection, client_adders = sock.accept()
+    conn, client_adders = sock.accept()
     print(client_adders)
-    try:
-        while True:
-            request = connection.recv(1024)
-            print(request)
-            if not request:
-                break
-            else:
-                response = 'testing'.encode()
-            response = 'testing'.encode()
-            connection.send(response)
-    finally:
-        connection.close()
+    while True:
+        data = conn.recv(1024)
+        if not data:
+            break
+        print(data)
+        conn.send(data)
+        if data == b'quit':
+            break
