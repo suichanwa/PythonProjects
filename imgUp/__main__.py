@@ -5,11 +5,11 @@ sr = dnn_superres.DnnSuperResImpl_create()
 
 image = cv2.imread('input/modelTesting.jpg')
 
-path = "EDSR_x3.pb"
+path = "EDSR_2x.pb"
 sr.readModel(path)
 
-sr.setModel("edsr", 3)
+sr.setModel("edsr", 2)
 
 result = sr.upsample(image)
 
-cv2.imwrite("output/modelTestingEDSR_3x.jpg", result)
+cv2.imwrite("output/modelTestingEDSR_2x.jpg", result)
