@@ -8,6 +8,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.textinput import TextInput
+from kivy.uix.widget import Widget
 
 class MainApp(App):
     def build(self):
@@ -89,7 +90,7 @@ class TestApp(App):
 class MyGrid(GridLayout):
     def __init__(self, **kwargs):
         super(MyGrid, self).__init__(**kwargs)
-        self.cols = 1
+        self.cols = 2
 
         self.inside = GridLayout()
         self.inside.cols = 2
@@ -111,6 +112,8 @@ class MyGrid(GridLayout):
         self.submit = Button(text="Submit", font_size=40)
         self.submit.bind(on_press=self.pressed)
         self.add_widget(self.submit)
+        
+        self.inside.add_widget(Label(text="Inside", font_size='34'))
 
     def pressed(self, instance):
         name = self.name.text
@@ -124,8 +127,25 @@ class MyGrid(GridLayout):
 
 class MyApp(App):
     def build(self):
+        
         return MyGrid()
 
+class ButtonApp(App):
+    def build(self):
+        btn = Button(text="Button",
+                    font_size = "23" ,
+                    background_color = (1,1,1,1),
+                    color = (1,1,1,1),
+        )
+        
+        return btn
+
+class MApp(App):
+    def build(self):
+        return MyGrid()
 
 if __name__ == "__main__":
-    MyApp().run()
+    #root = ButtonApp()
+    #MyApp().run()
+    #root.run()
+    MApp().run()
